@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fila Configuração CRM</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f9f9fa;
+    }
+    .top-bar {
+        background-color: #3c434a;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .top-bar img {
+        max-width: 100px;
+        vertical-align: middle;
+    }
+    .orientation-button {
+        background-color: #ed1c24;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .fila-container {
+        padding: 20px;
+        text-align: center;
+    }
+    .fila-item {
+        display: inline-block;
+        color: #000;
+        padding: 30px;
+        margin: 15px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        transition: background-color 0.3s ease;
+    }
+    .fila-item:hover {
+        transform: translateY(-5px);
+        transition: transform 0.3s ease;
+    }
+    .fila-item.checked {
+        background-color: #ed1c24;
+        color: #fff;
+    }
+    .info-input {
+        width: 100%;
+        padding: 5px;
+        margin-top: 10px;
+        box-sizing: border-box;
+    }
+    .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ed1c24;
+        color: #fff;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+        display: none;
+    }
+    .popup p {
+        margin: 0;
+        padding: 10px 0;
+    }
+    .popup button {
+        background-color: #fff;
+        color: #ed1c24;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+    <div class="top-bar">
+        <div>
+            <img src="https://i.ibb.co/fX3t6Sj/logo-inverted.png" alt="Logo">
+            <h1 style="margin: 0;">Fila Configuração CRM</h1>
+        </div>
+        <button class="orientation-button" onclick="togglePopup()">ORIENTAÇÃO</button>
+    </div>
+    <div class="popup" id="popup">
+        <p>Marcar o checkbox sempre que colocar uma agenda para um colaborador. Quando chegar no fim da fila, desmarcar todos e voltar para o início.</p>
+        <button onclick="togglePopup()">Fechar</button>
+    </div>
+    <div class="fila-container">
+        <div class="fila-item" id="adrianItem">
+            <input type="checkbox" id="adrian">
+            <label for="adrian">Adrian</label>
+            <br>
+            <input type="text" class="info-input" placeholder="Adicionar informações...">
+        </div>
+        <div class="fila-item" id="alessandroItem">
+            <input type="checkbox" id="alessandro">
+            <label for="alessandro">Alessandro</label>
+            <br>
+            <input type="text" class="info-input" placeholder="Adicionar informações...">
+        </div>
+        <div class="fila-item" id="carolinaItem">
+            <input type="checkbox" id="carolina">
+            <label for="carolina">Carolina</label>
+            <br>
+            <input type="text" class="info-input" placeholder="Adicionar informações...">
+        </div>
+        <div class="fila-item" id="daviItem">
+            <input type="checkbox" id="davi">
+            <label for="davi">Davi</label>
+            <br>
+            <input type="text" class="info-input" placeholder="Adicionar informações...">
+        </div>
+        <div class="fila-item" id="jolieItem">
+            <input type="checkbox" id="jolie">
+            <label for="jolie">Jolie</label>
+            <br>
+            <input type="text" class="info-input" placeholder="Adicionar informações...">
+        </div>
+        <div class="fila-item" id="muriloItem">
+            <input type="checkbox" id="murilo">
+            <label for="murilo">Murilo</label>
+            <br>
+            <input type="text" class="info-input" placeholder="Adicionar informações...">
+        </div>
+        <div class="fila-item" id="nicolasItem">
+            <input type="checkbox" id="nicolas">
+            <label for="nicolas">Nicolas</label>
+            <br>
+            <input type="text" class="info-input" placeholder="Adicionar informações...">
+        </div>
+        <div class="fila-item" id="ramonItem">
+            <input type="checkbox" id="ramon">
+            <label for="ramon">Ramon</label>
+            <br>
+            <input type="text" class="info-input" placeholder="Adicionar informações...">
+        </div>
+        <div class="fila-item name-red" id="renathaItem">
+            <input type="checkbox" id="renatha">
+            <label for="renatha">Renatha</label>
+            <br>
+            <input type="text" class="info-input" placeholder="Adicionar informações...">
+        </div>
+
+    <script>
+        function togglePopup() {
+            const popup = document.getElementById('popup');
+            popup.style.display = (popup.style.display === 'none' || popup.style.display === '') ? 'block' : 'none';
+        }
+
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener('change', function() {
+                const item = this.parentNode;
+                if (this.checked) {
+                    item.classList.add('checked');
+                } else {
+                    item.classList.remove('checked');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
